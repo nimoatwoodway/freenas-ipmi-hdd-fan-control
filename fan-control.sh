@@ -45,7 +45,7 @@
 # if loop_sleep is non-zero, then we'll never exit. Its how long, in seconds, we should sleep each iteration...
 
 $loop_sleep = 0; # 0 for no looping. 180 for 3 minute looping (suggested)
-$debug = 4;	# 0 for no debug. 1..4 for verbosity
+$debug = 1;	# 0 for no debug. 1..4 for verbosity
 
 
 # edit the following values
@@ -65,8 +65,8 @@ use POSIX qw(strftime);
 
 
 # go to Optimal mode
-`ipmitool raw 0x30 0x45 0x01 2`;
-sleep 1;
+# `ipmitool raw 0x30 0x45 0x01 2`;
+# sleep 1;
 
 do {
 
@@ -124,8 +124,8 @@ elsif ($max_temp >= $max_allowed_temp - 1 ) {
   }
     
   # set hd fans speed control to 75%
-  `ipmitool raw 0x30 0x70 0x66 0x01 0x00 0x55`;
-  `ipmitool raw 0x30 0x70 0x66 0x01 0x01 0x55`;
+  `ipmitool raw 0x30 0x70 0x66 0x01 0x00 0x45`;
+  `ipmitool raw 0x30 0x70 0x66 0x01 0x01 0x45`;
 }
 
 elsif ($max_temp >= $max_allowed_temp - 2 ) {
